@@ -63,6 +63,6 @@
     <PostDeploy Include="Script\Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table\Admin.sql" />
+
   </ItemGroup>
 </Project>
