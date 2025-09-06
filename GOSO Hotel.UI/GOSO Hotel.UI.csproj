@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CuoreUI, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CuoreUI.Winforms.2025.8.27\lib\net472\CuoreUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FronDeskDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FronDeskDashboard.Designer.cs">
+      <DependentUpon>FronDeskDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontDeskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontDeskForm.Designer.cs">
+      <DependentUpon>FrontDeskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FronDeskDashboard.resx">
+      <DependentUpon>FronDeskDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontDeskForm.resx">
+      <DependentUpon>FrontDeskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +105,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,6 +123,14 @@
     <ProjectReference Include="..\GOSO Hotel.Controller\GOSO Hotel.Controller.csproj">
       <Project>{9e9afb68-3229-427b-88dd-e1668b13f12f}</Project>
       <Name>GOSO Hotel.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GOSO Hotel.Model\GOSO Hotel.Model.csproj">
+      <Project>{5bcc27f9-8221-4290-92bd-dd9aae07bb61}</Project>
+      <Name>GOSO Hotel.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GOSO Hotel.Repository\GOSO Hotel.Repository.csproj">
+      <Project>{2ccd5504-bd88-460e-a5f6-4d6450bdbe7d}</Project>
+      <Name>GOSO Hotel.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

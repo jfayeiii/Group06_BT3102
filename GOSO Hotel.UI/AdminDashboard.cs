@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GOSO_Hotel.UI
 {
-    public partial class Form1 : Form
+    public partial class AdminDashboard : Form
     {
-        public Form1()
+        public AdminDashboard()
         {
             InitializeComponent();
         }
