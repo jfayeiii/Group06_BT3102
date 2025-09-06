@@ -15,3 +15,9 @@ INSERT INTO [dbo].[Admin]
 [Username],
 [Password])
 VALUES('admin','gosohotel')
+
+INSERT INTO [dbo].[Front Desk]
+(
+[Username],
+[Password])
+VALUES('Laine','elaine')
