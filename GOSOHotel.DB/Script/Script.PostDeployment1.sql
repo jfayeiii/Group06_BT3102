@@ -9,3 +9,12 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+
+INSERT INTO [dbo].[Front Desk]
+(
+[Id],
+[Username],
+[Password],
+[Role])
+VALUES('2345', 'Laine','elaine'),
+('6789', 'Marky', 'ykymk')
