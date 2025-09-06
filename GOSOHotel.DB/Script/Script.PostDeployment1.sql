@@ -9,3 +9,9 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+
+INSERT INTO [dbo].[Admin]
+(
+[Username],
+[Password])
+VALUES('admin','gosohotel')
