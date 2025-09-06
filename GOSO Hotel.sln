@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOSO Hotel.Repository", "GO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GOSO Hotel.Controller", "GOSO Hotel.Controller\GOSO Hotel.Controller.csproj", "{9E9AFB68-3229-427B-88DD-E1668B13F12F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GOSOHotel.DB", "GOSOHotel.DB\GOSOHotel.DB.sqlproj", "{F70D7382-1134-452B-862C-0DF269B3185C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{9E9AFB68-3229-427B-88DD-E1668B13F12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E9AFB68-3229-427B-88DD-E1668B13F12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E9AFB68-3229-427B-88DD-E1668B13F12F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70D7382-1134-452B-862C-0DF269B3185C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
