@@ -10,11 +10,8 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-INSERT INTO [dbo].[Front Desk]
+INSERT INTO [dbo].[Admin]
 (
-[Id],
 [Username],
-[Password],
-[Role])
-VALUES('2345', 'Laine','elaine'),
-('6789', 'Marky', 'ykymk')
+[Password])
+VALUES('admin','gosohotel')
