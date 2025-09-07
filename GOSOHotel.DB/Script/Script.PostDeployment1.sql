@@ -12,12 +12,14 @@ Post-Deployment Script Template
 
 INSERT INTO [dbo].[Admin]
 (
+[Id],
 [Username],
 [Password])
-VALUES('admin','gosohotel')
+VALUES('2345','admin','gosohotel')
 
 INSERT INTO [dbo].[Front Desk]
 (
+[Id],
 [Username],
 [Password])
-VALUES('Laine','elaine')
+VALUES('6789','front desk','frontdesk')

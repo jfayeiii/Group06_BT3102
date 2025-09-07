@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[Front Desk]
-(
+(  
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY (1,1),
 	[Username] NVARCHAR(50) NOT NULL,
 	[Password] NVARCHAR(50) NOT NULL
 )
