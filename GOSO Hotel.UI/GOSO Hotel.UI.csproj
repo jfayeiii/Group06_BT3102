@@ -125,12 +125,8 @@
       <Name>GOSO Hotel.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\GOSO Hotel.Model\GOSO Hotel.Model.csproj">
-      <Project>{5bcc27f9-8221-4290-92bd-dd9aae07bb61}</Project>
+      <Project>{5BCC27F9-8221-4290-92BD-DD9AAE07BB61}</Project>
       <Name>GOSO Hotel.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GOSO Hotel.Repository\GOSO Hotel.Repository.csproj">
-      <Project>{2ccd5504-bd88-460e-a5f6-4d6450bdbe7d}</Project>
-      <Name>GOSO Hotel.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
