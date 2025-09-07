@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GOSO_Hotel.Model
 {
-    public class Class1
+    public class UserModel
     {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
