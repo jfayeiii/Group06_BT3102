@@ -56,7 +56,13 @@ namespace GOSO_Hotel.UI
         private void guestInfobtn_Click(object sender, EventArgs e)
         {
             MovePanel(guestInfobtn);
+            FrontDeskPanelMain.Controls.Clear();
 
+            UserControlGuestInformationcs guestInfo = new UserControlGuestInformationcs();
+            guestInfo.Dock = DockStyle.Fill;
+
+
+            FrontDeskPanelMain.Controls.Add(guestInfo);
         }
 
         private void fdreservationbtn_Click(object sender, EventArgs e)

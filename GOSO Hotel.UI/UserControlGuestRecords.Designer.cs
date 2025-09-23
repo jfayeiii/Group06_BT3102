@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteGuesttab = new System.Windows.Forms.TabPage();
+            this.deleteGuestSearchbtn = new System.Windows.Forms.Button();
             this.deleteGuestbtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.deleteByGuestIDtxt = new System.Windows.Forms.TextBox();
@@ -54,13 +55,28 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.deleteGuestSearchbtn = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.enquiredGuestSearchbtn = new System.Windows.Forms.Button();
+            this.txtCustomerIdEnquiredGuest = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.enquiredGuestDGrid = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.stayingGuestSearchbtn = new System.Windows.Forms.Button();
+            this.txtStayingGuestCustomerId = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.searchGuestTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guestRecordDGrid)).BeginInit();
             this.deleteGuesttab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.addGuestTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enquiredGuestDGrid)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,6 +85,8 @@
             this.tabControl1.Controls.Add(this.searchGuestTab);
             this.tabControl1.Controls.Add(this.deleteGuesttab);
             this.tabControl1.Controls.Add(this.addGuestTab);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -174,6 +192,17 @@
             this.deleteGuesttab.TabIndex = 1;
             this.deleteGuesttab.Text = "Delete Guest";
             this.deleteGuesttab.UseVisualStyleBackColor = true;
+            // 
+            // deleteGuestSearchbtn
+            // 
+            this.deleteGuestSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.deleteGuestSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteGuestSearchbtn.Location = new System.Drawing.Point(589, 91);
+            this.deleteGuestSearchbtn.Name = "deleteGuestSearchbtn";
+            this.deleteGuestSearchbtn.Size = new System.Drawing.Size(128, 34);
+            this.deleteGuestSearchbtn.TabIndex = 14;
+            this.deleteGuestSearchbtn.Text = "Search";
+            this.deleteGuestSearchbtn.UseVisualStyleBackColor = false;
             // 
             // deleteGuestbtn
             // 
@@ -336,16 +365,131 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Add Guest:";
             // 
-            // deleteGuestSearchbtn
+            // tabPage1
             // 
-            this.deleteGuestSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.deleteGuestSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteGuestSearchbtn.Location = new System.Drawing.Point(589, 91);
-            this.deleteGuestSearchbtn.Name = "deleteGuestSearchbtn";
-            this.deleteGuestSearchbtn.Size = new System.Drawing.Size(128, 34);
-            this.deleteGuestSearchbtn.TabIndex = 14;
-            this.deleteGuestSearchbtn.Text = "Search";
-            this.deleteGuestSearchbtn.UseVisualStyleBackColor = false;
+            this.tabPage1.Controls.Add(this.enquiredGuestSearchbtn);
+            this.tabPage1.Controls.Add(this.txtCustomerIdEnquiredGuest);
+            this.tabPage1.Controls.Add(this.label12);
+            this.tabPage1.Controls.Add(this.enquiredGuestDGrid);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1185, 561);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "Enquired  Guest";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // enquiredGuestSearchbtn
+            // 
+            this.enquiredGuestSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.enquiredGuestSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enquiredGuestSearchbtn.Location = new System.Drawing.Point(866, 53);
+            this.enquiredGuestSearchbtn.Name = "enquiredGuestSearchbtn";
+            this.enquiredGuestSearchbtn.Size = new System.Drawing.Size(128, 34);
+            this.enquiredGuestSearchbtn.TabIndex = 13;
+            this.enquiredGuestSearchbtn.Text = "Search";
+            this.enquiredGuestSearchbtn.UseVisualStyleBackColor = false;
+            // 
+            // txtCustomerIdEnquiredGuest
+            // 
+            this.txtCustomerIdEnquiredGuest.Location = new System.Drawing.Point(695, 53);
+            this.txtCustomerIdEnquiredGuest.Multiline = true;
+            this.txtCustomerIdEnquiredGuest.Name = "txtCustomerIdEnquiredGuest";
+            this.txtCustomerIdEnquiredGuest.Size = new System.Drawing.Size(165, 34);
+            this.txtCustomerIdEnquiredGuest.TabIndex = 12;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(691, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 22);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Customer ID:";
+            // 
+            // enquiredGuestDGrid
+            // 
+            this.enquiredGuestDGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.enquiredGuestDGrid.Location = new System.Drawing.Point(146, 93);
+            this.enquiredGuestDGrid.Name = "enquiredGuestDGrid";
+            this.enquiredGuestDGrid.RowHeadersWidth = 51;
+            this.enquiredGuestDGrid.Size = new System.Drawing.Size(847, 388);
+            this.enquiredGuestDGrid.TabIndex = 10;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(148, 22);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Enquired Guest:";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.stayingGuestSearchbtn);
+            this.tabPage2.Controls.Add(this.txtStayingGuestCustomerId);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1185, 561);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "Staying Guest";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // stayingGuestSearchbtn
+            // 
+            this.stayingGuestSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.stayingGuestSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stayingGuestSearchbtn.Location = new System.Drawing.Point(863, 51);
+            this.stayingGuestSearchbtn.Name = "stayingGuestSearchbtn";
+            this.stayingGuestSearchbtn.Size = new System.Drawing.Size(128, 34);
+            this.stayingGuestSearchbtn.TabIndex = 18;
+            this.stayingGuestSearchbtn.Text = "Search";
+            this.stayingGuestSearchbtn.UseVisualStyleBackColor = false;
+            // 
+            // txtStayingGuestCustomerId
+            // 
+            this.txtStayingGuestCustomerId.Location = new System.Drawing.Point(692, 51);
+            this.txtStayingGuestCustomerId.Multiline = true;
+            this.txtStayingGuestCustomerId.Name = "txtStayingGuestCustomerId";
+            this.txtStayingGuestCustomerId.Size = new System.Drawing.Size(165, 34);
+            this.txtStayingGuestCustomerId.TabIndex = 17;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(688, 26);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 22);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Customer ID:";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(143, 91);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.Size = new System.Drawing.Size(847, 388);
+            this.dataGridView2.TabIndex = 15;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(0, 1);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 22);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Staying Guest:";
             // 
             // UserControlGuestRecords
             // 
@@ -363,6 +507,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.addGuestTab.ResumeLayout(false);
             this.addGuestTab.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.enquiredGuestDGrid)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -396,5 +546,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button deleteGuestSearchbtn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button enquiredGuestSearchbtn;
+        private System.Windows.Forms.TextBox txtCustomerIdEnquiredGuest;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView enquiredGuestDGrid;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button stayingGuestSearchbtn;
+        private System.Windows.Forms.TextBox txtStayingGuestCustomerId;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label14;
     }
 }

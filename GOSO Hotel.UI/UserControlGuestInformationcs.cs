@@ -10,18 +10,13 @@ using System.Windows.Forms;
 
 namespace GOSO_Hotel.UI
 {
-    public partial class UserControlGuestRecords : UserControl
+    public partial class UserControlGuestInformationcs : UserControl
     {
-        public UserControlGuestRecords()
+        public UserControlGuestInformationcs()
         {
             InitializeComponent();
         }
 
-        private void cuiLabel1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-       
+   
     }
 }

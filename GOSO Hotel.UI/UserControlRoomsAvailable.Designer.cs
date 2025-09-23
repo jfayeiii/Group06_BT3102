@@ -32,13 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RoomtypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guestNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CapacityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatefromColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateToColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,69 +67,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomtypeColumn,
-            this.RoomNoColumn,
-            this.guestNameColumn,
-            this.CapacityColumn,
-            this.statusColumn,
-            this.DatefromColumn,
-            this.DateToColumn});
             this.dataGridView1.Location = new System.Drawing.Point(131, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(916, 470);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // RoomtypeColumn
-            // 
-            this.RoomtypeColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomtypeColumn.HeaderText = "Room Type";
-            this.RoomtypeColumn.MinimumWidth = 6;
-            this.RoomtypeColumn.Name = "RoomtypeColumn";
-            // 
-            // RoomNoColumn
-            // 
-            this.RoomNoColumn.HeaderText = "Rooms";
-            this.RoomNoColumn.MinimumWidth = 6;
-            this.RoomNoColumn.Name = "RoomNoColumn";
-            this.RoomNoColumn.Width = 125;
-            // 
-            // guestNameColumn
-            // 
-            this.guestNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.guestNameColumn.HeaderText = "Guest Name";
-            this.guestNameColumn.MinimumWidth = 6;
-            this.guestNameColumn.Name = "guestNameColumn";
-            // 
-            // CapacityColumn
-            // 
-            this.CapacityColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CapacityColumn.HeaderText = "Capacity";
-            this.CapacityColumn.MinimumWidth = 6;
-            this.CapacityColumn.Name = "CapacityColumn";
-            // 
-            // statusColumn
-            // 
-            this.statusColumn.HeaderText = "StatusColumn";
-            this.statusColumn.MinimumWidth = 6;
-            this.statusColumn.Name = "statusColumn";
-            this.statusColumn.Width = 125;
-            // 
-            // DatefromColumn
-            // 
-            this.DatefromColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DatefromColumn.HeaderText = "Date From";
-            this.DatefromColumn.MinimumWidth = 6;
-            this.DatefromColumn.Name = "DatefromColumn";
-            // 
-            // DateToColumn
-            // 
-            this.DateToColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateToColumn.HeaderText = "Date To";
-            this.DateToColumn.MinimumWidth = 6;
-            this.DateToColumn.Name = "DateToColumn";
             // 
             // UserControlRoomsAvailable
             // 
@@ -160,12 +96,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomtypeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNoColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn guestNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CapacityColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatefromColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateToColumn;
     }
 }
