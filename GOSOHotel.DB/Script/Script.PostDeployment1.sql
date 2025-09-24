@@ -23,3 +23,24 @@ INSERT INTO [dbo].[Front Desk]
 [Username],
 [Password])
 VALUES('6789','front desk','frontdesk')
+
+
+ALTER TABLE dbo.GuestRecord
+ADD CONSTRAINT FK_RoomNo FOREIGN KEY (RoomNo) REFERENCES dbo.Room(RoomNo);
+
+
+INSERT INTO Rooms (RoomNo, NoOfBeds, RoomType, Capacity)
+VALUES
+('101', 1, 'Single', 1),
+('201', 2, 'Double', 2),
+('301', 2, 'Twin', 2);
+
+
+INSERT INTO GuestRecord
+(Name, Gender, ContactNo, EmailAddress, Address, RoomType, RoomNo, NoOfGuests, CheckIn, CheckOut, Status)
+VALUES
+('Juan Cruz', 'Male', '0917123456', 'juan@email.com', 'Batangas', 'Single', '101', 1, '2025-09-24', '2025-09-25', 'Staying');
+
+
+
+
