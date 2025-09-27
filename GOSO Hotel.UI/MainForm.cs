@@ -15,6 +15,12 @@ namespace GOSO_Hotel.UI
         public MainForm()
         {
             InitializeComponent();
+            Rectangle workArea = Screen.PrimaryScreen.WorkingArea;
+            int width = (int)(workArea.Width * 0.80);
+            int height = (int)(workArea.Height * 0.80);
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(width, height);
         }
 
         private void loginfdbtn_Click(object sender, EventArgs e)

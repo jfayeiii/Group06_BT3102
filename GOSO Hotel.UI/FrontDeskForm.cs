@@ -20,6 +20,12 @@ namespace GOSO_Hotel.UI
         {
             InitializeComponent();
             this._userController = new UserController();
+            Rectangle workArea = Screen.PrimaryScreen.WorkingArea;
+            int width = (int)(workArea.Width * 0.80);
+            int height = (int)(workArea.Height * 0.80);
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(width, height);
         }
 
 
