@@ -65,5 +65,7 @@
   <ItemGroup>
     <Build Include="Table\Admin_1.sql" />
     <Build Include="Table\Front Desk_1.sql" />
+    <Build Include="Table\Room.sql" />
+    <Build Include="Table\GuestRecord.sql" />
   </ItemGroup>
 </Project>

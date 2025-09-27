@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Room]
+(
+    RoomID INT IDENTITY(1,1) PRIMARY KEY,
+    RoomNo NVARCHAR(10) NOT NULL UNIQUE,
+    NoOfBeds INT NOT NULL,
+    RoomType NVARCHAR(50) NOT NULL,
+    Capacity INT NOT NULL
+);
