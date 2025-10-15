@@ -54,22 +54,23 @@
             this.txtDeleteByRoomNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.RoomModificationDGrid = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RoomModSearchbtn = new System.Windows.Forms.Button();
+            this.RoomModSearchtxt = new System.Windows.Forms.TextBox();
+            this.RoomNoUpdatecmb = new System.Windows.Forms.ComboBox();
+            this.RoomModUpdatebtn = new System.Windows.Forms.Button();
             this.txtCapacityUpdate = new System.Windows.Forms.TextBox();
             this.txtRoomTypeUpdate = new System.Windows.Forms.TextBox();
             this.txtBedCountUpdate = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.RoomModUpdatebtn = new System.Windows.Forms.Button();
-            this.RoomNoUpdatecmb = new System.Windows.Forms.ComboBox();
-            this.RoomModSearchtxt = new System.Windows.Forms.TextBox();
-            this.RoomModSearchbtn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.RoomModificationDGrid = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.roomsTabcntrl.SuspendLayout();
             this.roomsearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roomSearchDGrid)).BeginInit();
@@ -125,7 +126,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Location = new System.Drawing.Point(551, 97);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 30);
+            this.button1.Size = new System.Drawing.Size(128, 34);
             this.button1.TabIndex = 3;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
@@ -343,12 +344,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Delete Room:";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.RoomModSearchbtn);
@@ -372,41 +367,43 @@
             this.tabPage1.Text = "Update Room";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // RoomModificationDGrid
+            // RoomModSearchbtn
             // 
-            this.RoomModificationDGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RoomModificationDGrid.Location = new System.Drawing.Point(218, 240);
-            this.RoomModificationDGrid.Name = "RoomModificationDGrid";
-            this.RoomModificationDGrid.RowHeadersWidth = 51;
-            this.RoomModificationDGrid.RowTemplate.Height = 24;
-            this.RoomModificationDGrid.Size = new System.Drawing.Size(702, 234);
-            this.RoomModificationDGrid.TabIndex = 0;
+            this.RoomModSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RoomModSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomModSearchbtn.Location = new System.Drawing.Point(760, 175);
+            this.RoomModSearchbtn.Name = "RoomModSearchbtn";
+            this.RoomModSearchbtn.Size = new System.Drawing.Size(160, 30);
+            this.RoomModSearchbtn.TabIndex = 20;
+            this.RoomModSearchbtn.Text = "Search";
+            this.RoomModSearchbtn.UseVisualStyleBackColor = false;
             // 
-            // label10
+            // RoomModSearchtxt
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(168, 19);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Room Modification:";
+            this.RoomModSearchtxt.Location = new System.Drawing.Point(760, 210);
+            this.RoomModSearchtxt.Multiline = true;
+            this.RoomModSearchtxt.Name = "RoomModSearchtxt";
+            this.RoomModSearchtxt.Size = new System.Drawing.Size(160, 24);
+            this.RoomModSearchtxt.TabIndex = 19;
             // 
-            // label11
+            // RoomNoUpdatecmb
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(214, 128);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 19);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "RoomNo:";
+            this.RoomNoUpdatecmb.FormattingEnabled = true;
+            this.RoomNoUpdatecmb.Location = new System.Drawing.Point(218, 151);
+            this.RoomNoUpdatecmb.Name = "RoomNoUpdatecmb";
+            this.RoomNoUpdatecmb.Size = new System.Drawing.Size(142, 24);
+            this.RoomNoUpdatecmb.TabIndex = 18;
             // 
-            // contextMenuStrip2
+            // RoomModUpdatebtn
             // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            this.RoomModUpdatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.RoomModUpdatebtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomModUpdatebtn.Location = new System.Drawing.Point(760, 145);
+            this.RoomModUpdatebtn.Name = "RoomModUpdatebtn";
+            this.RoomModUpdatebtn.Size = new System.Drawing.Size(160, 30);
+            this.RoomModUpdatebtn.TabIndex = 17;
+            this.RoomModUpdatebtn.Text = "Update";
+            this.RoomModUpdatebtn.UseVisualStyleBackColor = false;
             // 
             // txtCapacityUpdate
             // 
@@ -462,43 +459,51 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Number of Beds:";
             // 
-            // RoomModUpdatebtn
+            // label11
             // 
-            this.RoomModUpdatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RoomModUpdatebtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomModUpdatebtn.Location = new System.Drawing.Point(760, 145);
-            this.RoomModUpdatebtn.Name = "RoomModUpdatebtn";
-            this.RoomModUpdatebtn.Size = new System.Drawing.Size(160, 30);
-            this.RoomModUpdatebtn.TabIndex = 17;
-            this.RoomModUpdatebtn.Text = "Update";
-            this.RoomModUpdatebtn.UseVisualStyleBackColor = false;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(214, 128);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 19);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "RoomNo:";
             // 
-            // RoomNoUpdatecmb
+            // label10
             // 
-            this.RoomNoUpdatecmb.FormattingEnabled = true;
-            this.RoomNoUpdatecmb.Location = new System.Drawing.Point(218, 151);
-            this.RoomNoUpdatecmb.Name = "RoomNoUpdatecmb";
-            this.RoomNoUpdatecmb.Size = new System.Drawing.Size(142, 24);
-            this.RoomNoUpdatecmb.TabIndex = 18;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(168, 19);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Room Modification:";
             // 
-            // RoomModSearchtxt
+            // RoomModificationDGrid
             // 
-            this.RoomModSearchtxt.Location = new System.Drawing.Point(760, 210);
-            this.RoomModSearchtxt.Multiline = true;
-            this.RoomModSearchtxt.Name = "RoomModSearchtxt";
-            this.RoomModSearchtxt.Size = new System.Drawing.Size(160, 24);
-            this.RoomModSearchtxt.TabIndex = 19;
+            this.RoomModificationDGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoomModificationDGrid.Location = new System.Drawing.Point(218, 240);
+            this.RoomModificationDGrid.Name = "RoomModificationDGrid";
+            this.RoomModificationDGrid.RowHeadersWidth = 51;
+            this.RoomModificationDGrid.RowTemplate.Height = 24;
+            this.RoomModificationDGrid.Size = new System.Drawing.Size(702, 234);
+            this.RoomModificationDGrid.TabIndex = 0;
             // 
-            // RoomModSearchbtn
+            // contextMenuStrip1
             // 
-            this.RoomModSearchbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RoomModSearchbtn.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomModSearchbtn.Location = new System.Drawing.Point(760, 175);
-            this.RoomModSearchbtn.Name = "RoomModSearchbtn";
-            this.RoomModSearchbtn.Size = new System.Drawing.Size(160, 30);
-            this.RoomModSearchbtn.TabIndex = 20;
-            this.RoomModSearchbtn.Text = "Search";
-            this.RoomModSearchbtn.UseVisualStyleBackColor = false;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // UserControlRooms
             // 
@@ -567,5 +572,6 @@
         private System.Windows.Forms.ComboBox RoomNoUpdatecmb;
         private System.Windows.Forms.Button RoomModSearchbtn;
         private System.Windows.Forms.TextBox RoomModSearchtxt;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

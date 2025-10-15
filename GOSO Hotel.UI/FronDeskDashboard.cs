@@ -68,25 +68,53 @@ namespace GOSO_Hotel.UI
         private void fdreservationbtn_Click(object sender, EventArgs e)
         {
             MovePanel(fdreservationbtn);
+            FrontDeskPanelMain.Controls.Clear();
+
+            UserControlReservation usreserve = new UserControlReservation();
+            usreserve.Dock = DockStyle.Fill;
+
+
+            FrontDeskPanelMain.Controls.Add(usreserve);
 
         }
 
-        private void reserveStatbtn_Click(object sender, EventArgs e)
+        private void fdBillingPaymentbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(reserveStatbtn);
+            MovePanel(fdBillingPaymentbtn);
+            FrontDeskPanelMain.Controls.Clear();
+
+            UserControlBillingPayment billingPayment = new UserControlBillingPayment();
+            billingPayment.Dock = DockStyle.Fill;
+
+            FrontDeskPanelMain.Controls.Add(billingPayment);
 
         }
 
-        private void BillingPaymentbtn_Click(object sender, EventArgs e)
+        private void fdReservationStatbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(BillingPaymentbtn);
+            MovePanel(fdReservationStatbtn);
+            FrontDeskPanelMain.Controls.Clear();
+
+            UserControlReservationStatus stat = new UserControlReservationStatus();
+            stat.Dock = DockStyle.Fill;
+
+            FrontDeskPanelMain.Controls.Add(stat);
 
         }
 
 
-        private void checkInCheckOutBtn_Click_1(object sender, EventArgs e)
+        private void CheckInCheckOutbtn_Click_1(object sender, EventArgs e)
         {
-            MovePanel(checkInCheckOutBtn);
+            MovePanel(CheckInCheckOutbtn);
+            FrontDeskPanelMain.Controls.Clear();
+
+            UserControlCheckInCheckOut checkInCheckOut = new UserControlCheckInCheckOut();
+            checkInCheckOut.Dock = DockStyle.Fill;
+
+            FrontDeskPanelMain.Controls.Add(checkInCheckOut);
+
         }
+
+      
     }
 }
