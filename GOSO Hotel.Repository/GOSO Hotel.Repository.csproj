@@ -35,6 +35,7 @@
       <HintPath>..\packages\CuoreUI.Winforms.2025.9.19\lib\net472\CuoreUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

@@ -61,6 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script\Script.PostDeployment1.sql" />
+    <Build Include="Script\sp_CreateGuestRecord.sql" />
+    <Build Include="Script\sp_GetAllGuestRecords.sql" />
+    <Build Include="Script\sp_GetGuestRecordById.sql" />
+    <Build Include="Script\sp_GetGuestRecordsByStatus.sql" />
+    <Build Include="Script\sp_GetGuestRecordsByRoom.sql" />
+    <Build Include="Script\sp_UpdateGuestRecord.sql" />
+    <Build Include="Script\sp_CheckInGuest.sql" />
+    <Build Include="Script\sp_CheckOutGuest.sql" />
+    <Build Include="Script\sp_DeleteGuestRecord.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Admin_1.sql" />
