@@ -81,6 +81,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlBillingPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlBillingPayment.Designer.cs">
+      <DependentUpon>UserControlBillingPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlCheckInCheckOut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlCheckInCheckOut.Designer.cs">
+      <DependentUpon>UserControlCheckInCheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControlGuestInformationcs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +104,18 @@
     </Compile>
     <Compile Include="UserControlGuestRecords.Designer.cs">
       <DependentUpon>UserControlGuestRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlReservation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlReservation.Designer.cs">
+      <DependentUpon>UserControlReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlReservationStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlReservationStatus.Designer.cs">
+      <DependentUpon>UserControlReservationStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControlRooms.cs">
       <SubType>UserControl</SubType>
@@ -129,11 +153,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControlBillingPayment.resx">
+      <DependentUpon>UserControlBillingPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlCheckInCheckOut.resx">
+      <DependentUpon>UserControlCheckInCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControlGuestInformationcs.resx">
       <DependentUpon>UserControlGuestInformationcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlGuestRecords.resx">
       <DependentUpon>UserControlGuestRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlReservation.resx">
+      <DependentUpon>UserControlReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlReservationStatus.resx">
+      <DependentUpon>UserControlReservationStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlRooms.resx">
       <DependentUpon>UserControlRooms.cs</DependentUpon>

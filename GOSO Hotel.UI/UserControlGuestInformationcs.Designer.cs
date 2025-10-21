@@ -54,6 +54,8 @@
             this.txtGuestInfoSearch = new System.Windows.Forms.TextBox();
             this.GuestInfoSearchbtn = new System.Windows.Forms.Button();
             this.GuestInformationDGgrid = new System.Windows.Forms.DataGridView();
+            this.GuestInfoSaveGuestbtn = new System.Windows.Forms.Button();
+            this.GuestInfoSaveReservebtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GuestInformationDGgrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -287,10 +289,34 @@
             this.GuestInformationDGgrid.Size = new System.Drawing.Size(566, 382);
             this.GuestInformationDGgrid.TabIndex = 26;
             // 
+            // GuestInfoSaveGuestbtn
+            // 
+            this.GuestInfoSaveGuestbtn.BackColor = System.Drawing.Color.Red;
+            this.GuestInfoSaveGuestbtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuestInfoSaveGuestbtn.Location = new System.Drawing.Point(45, 512);
+            this.GuestInfoSaveGuestbtn.Name = "GuestInfoSaveGuestbtn";
+            this.GuestInfoSaveGuestbtn.Size = new System.Drawing.Size(157, 34);
+            this.GuestInfoSaveGuestbtn.TabIndex = 27;
+            this.GuestInfoSaveGuestbtn.Text = "Save Guest Info";
+            this.GuestInfoSaveGuestbtn.UseVisualStyleBackColor = false;
+            // 
+            // GuestInfoSaveReservebtn
+            // 
+            this.GuestInfoSaveReservebtn.BackColor = System.Drawing.Color.Red;
+            this.GuestInfoSaveReservebtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuestInfoSaveReservebtn.Location = new System.Drawing.Point(208, 512);
+            this.GuestInfoSaveReservebtn.Name = "GuestInfoSaveReservebtn";
+            this.GuestInfoSaveReservebtn.Size = new System.Drawing.Size(180, 34);
+            this.GuestInfoSaveReservebtn.TabIndex = 28;
+            this.GuestInfoSaveReservebtn.Text = "Save and Reserve";
+            this.GuestInfoSaveReservebtn.UseVisualStyleBackColor = false;
+            // 
             // UserControlGuestInformationcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.GuestInfoSaveReservebtn);
+            this.Controls.Add(this.GuestInfoSaveGuestbtn);
             this.Controls.Add(this.GuestInformationDGgrid);
             this.Controls.Add(this.GuestInfoSearchbtn);
             this.Controls.Add(this.txtGuestInfoSearch);
@@ -353,5 +379,7 @@
         private System.Windows.Forms.TextBox txtGuestInfoSearch;
         private System.Windows.Forms.Button GuestInfoSearchbtn;
         private System.Windows.Forms.DataGridView GuestInformationDGgrid;
+        private System.Windows.Forms.Button GuestInfoSaveGuestbtn;
+        private System.Windows.Forms.Button GuestInfoSaveReservebtn;
     }
 }
