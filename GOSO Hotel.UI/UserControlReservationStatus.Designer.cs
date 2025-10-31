@@ -36,7 +36,6 @@
             this.RStatCheckInbtn = new System.Windows.Forms.Button();
             this.RStatCheckoutbtn = new System.Windows.Forms.Button();
             this.CancelReservationbtn = new System.Windows.Forms.Button();
-            this.RStatDeletebtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.reservationStatDGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,21 +117,10 @@
             this.CancelReservationbtn.Text = "Cancel";
             this.CancelReservationbtn.UseVisualStyleBackColor = false;
             // 
-            // RStatDeletebtn
-            // 
-            this.RStatDeletebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RStatDeletebtn.Location = new System.Drawing.Point(974, 259);
-            this.RStatDeletebtn.Name = "RStatDeletebtn";
-            this.RStatDeletebtn.Size = new System.Drawing.Size(115, 34);
-            this.RStatDeletebtn.TabIndex = 18;
-            this.RStatDeletebtn.Text = "Delete";
-            this.RStatDeletebtn.UseVisualStyleBackColor = false;
-            // 
             // UserControlReservationStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.RStatDeletebtn);
             this.Controls.Add(this.CancelReservationbtn);
             this.Controls.Add(this.RStatCheckoutbtn);
             this.Controls.Add(this.RStatCheckInbtn);
@@ -159,6 +147,5 @@
         private System.Windows.Forms.Button RStatCheckInbtn;
         private System.Windows.Forms.Button RStatCheckoutbtn;
         private System.Windows.Forms.Button CancelReservationbtn;
-        private System.Windows.Forms.Button RStatDeletebtn;
     }
 }

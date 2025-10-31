@@ -70,6 +70,45 @@ namespace GOSO_Hotel.UI
 
 
         }
+
+        private void reservationstatsbtn_Click(object sender, EventArgs e)
+        {
+            MovePanel(reservationstatsbtn);
+
+            adminPanelMain.Controls.Clear();
+            UserControlAdminReservation usercontroladminreservation = new UserControlAdminReservation();
+            usercontroladminreservation.Dock = DockStyle.Fill;
+
+
+            adminPanelMain.Controls.Add(usercontroladminreservation);
+
+        }
+
+        private void BillingPaymentbtn_Click(object sender, EventArgs e)
+        {
+            MovePanel(BillingPaymentbtn);
+
+            adminPanelMain.Controls.Clear();
+            UserControlAdminBillingPayment usercontroladminbilling = new UserControlAdminBillingPayment();
+            usercontroladminbilling.Dock = DockStyle.Fill;
+
+
+            adminPanelMain.Controls.Add(usercontroladminbilling);
+
+        }
+
+        private void checkincheckoutbtn_Click(object sender, EventArgs e)
+        {
+            MovePanel(checkincheckoutbtn);
+
+            adminPanelMain.Controls.Clear();
+            UserControlAdminCheckinCheckout checkincheckout = new UserControlAdminCheckinCheckout();
+            checkincheckout.Dock = DockStyle.Fill;
+
+
+            adminPanelMain.Controls.Add(checkincheckout);
+
+        }
     }
 }
     
