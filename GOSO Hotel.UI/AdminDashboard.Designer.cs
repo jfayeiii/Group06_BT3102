@@ -42,6 +42,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.adminPanelMain = new System.Windows.Forms.Panel();
+            this.reservationstatsbtn = new System.Windows.Forms.Button();
+            this.BillingPaymentbtn = new System.Windows.Forms.Button();
+            this.checkincheckoutbtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
@@ -87,6 +90,9 @@
             this.panel3.Controls.Add(this.panelSlide);
             this.panel3.Controls.Add(this.guestrecordsbtn);
             this.panel3.Controls.Add(this.AdminRoombtn);
+            this.panel3.Controls.Add(this.reservationstatsbtn);
+            this.panel3.Controls.Add(this.BillingPaymentbtn);
+            this.panel3.Controls.Add(this.checkincheckoutbtn);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 253);
             this.panel3.Name = "panel3";
@@ -193,6 +199,48 @@
             this.adminPanelMain.Size = new System.Drawing.Size(1247, 661);
             this.adminPanelMain.TabIndex = 0;
             // 
+            // reservationstatsbtn
+            // 
+            this.reservationstatsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reservationstatsbtn.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationstatsbtn.ForeColor = System.Drawing.Color.Black;
+            this.reservationstatsbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reservationstatsbtn.Location = new System.Drawing.Point(47, 177);
+            this.reservationstatsbtn.Name = "reservationstatsbtn";
+            this.reservationstatsbtn.Size = new System.Drawing.Size(297, 81);
+            this.reservationstatsbtn.TabIndex = 4;
+            this.reservationstatsbtn.Text = "Reservation";
+            this.reservationstatsbtn.UseVisualStyleBackColor = true;
+            this.reservationstatsbtn.Click += new System.EventHandler(this.reservationstatsbtn_Click);
+            // 
+            // BillingPaymentbtn
+            // 
+            this.BillingPaymentbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BillingPaymentbtn.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BillingPaymentbtn.ForeColor = System.Drawing.Color.Black;
+            this.BillingPaymentbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BillingPaymentbtn.Location = new System.Drawing.Point(47, 264);
+            this.BillingPaymentbtn.Name = "BillingPaymentbtn";
+            this.BillingPaymentbtn.Size = new System.Drawing.Size(297, 81);
+            this.BillingPaymentbtn.TabIndex = 5;
+            this.BillingPaymentbtn.Text = "Billing/Payment";
+            this.BillingPaymentbtn.UseVisualStyleBackColor = true;
+            this.BillingPaymentbtn.Click += new System.EventHandler(this.BillingPaymentbtn_Click);
+            // 
+            // checkincheckoutbtn
+            // 
+            this.checkincheckoutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkincheckoutbtn.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkincheckoutbtn.ForeColor = System.Drawing.Color.Black;
+            this.checkincheckoutbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.checkincheckoutbtn.Location = new System.Drawing.Point(46, 351);
+            this.checkincheckoutbtn.Name = "checkincheckoutbtn";
+            this.checkincheckoutbtn.Size = new System.Drawing.Size(297, 81);
+            this.checkincheckoutbtn.TabIndex = 6;
+            this.checkincheckoutbtn.Text = "Checkin/Checkout";
+            this.checkincheckoutbtn.UseVisualStyleBackColor = true;
+            this.checkincheckoutbtn.Click += new System.EventHandler(this.checkincheckoutbtn_Click);
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,5 +278,8 @@
         private System.Windows.Forms.Button guestrecordsbtn;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel adminPanelMain;
+        private System.Windows.Forms.Button reservationstatsbtn;
+        private System.Windows.Forms.Button BillingPaymentbtn;
+        private System.Windows.Forms.Button checkincheckoutbtn;
     }
 }
