@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GOSO_Hotel.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,22 @@ namespace GOSO_Hotel.UI
         public UserControlAdminCheckinCheckout()
         {
             InitializeComponent();
+        }
+
+        private void CheckOutbtn_Click(object sender, EventArgs e)
+        {
+            {
+                if (!int.TryParse(CheckOutSearchtxt.Text, out int id))
+                {
+                    MessageBox.Show("Invalid Customer ID.");
+                    return;
+                }
+
+                var manager = new CheckInOutController();
+                string result = manager.CheckOut(id);
+
+                MessageBox.Show(result);
+            }
         }
     }
 }
