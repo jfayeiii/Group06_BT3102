@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GOSO_Hotel.UI
+namespace GOSO_Hotel.UI.UseControlAdmin
 {
-    public partial class UserControlAdminBillingPayment : UserControl
+    public partial class ReservationandGuestRecords : UserControl
     {
-        public UserControlAdminBillingPayment()
+        public ReservationandGuestRecords()
         {
             InitializeComponent();
         }
+
+        
     }
 }
