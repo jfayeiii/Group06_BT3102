@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GOSO_Hotel.UI.UseControlAdmin;
 
 namespace GOSO_Hotel.UI
 {
@@ -30,6 +31,13 @@ namespace GOSO_Hotel.UI
             panelSlide.Top = btn.Top;
             panelSlide.Height = btn.Height;
         }
+        public void LoadUserControl(UserControl control)
+        {
+            adminPanelMain.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            adminPanelMain.Controls.Add(control);
+        }
+        
 
         private void Adminlogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -59,9 +67,9 @@ namespace GOSO_Hotel.UI
 
         private void guestrecordsbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(guestrecordsbtn);
+            
 
-            adminPanelMain.Controls.Clear();
+            
             UserControlGuestRecords userControlGuestRecords = new UserControlGuestRecords();
             userControlGuestRecords.Dock = DockStyle.Fill;
 
@@ -75,12 +83,10 @@ namespace GOSO_Hotel.UI
         {
             MovePanel(reservationstatsbtn);
 
-            adminPanelMain.Controls.Clear();
-            UserControlAdminReservation usercontroladminreservation = new UserControlAdminReservation();
-            usercontroladminreservation.Dock = DockStyle.Fill;
+            LoadUserControl(new ReservationandGuestRecords());
 
 
-            adminPanelMain.Controls.Add(usercontroladminreservation);
+           
 
         }
 
@@ -89,7 +95,7 @@ namespace GOSO_Hotel.UI
             MovePanel(BillingPaymentbtn);
 
             adminPanelMain.Controls.Clear();
-            UserControlAdminBillingPayment usercontroladminbilling = new UserControlAdminBillingPayment();
+            UserControlBillingPayment usercontroladminbilling = new UserControlBillingPayment();
             usercontroladminbilling.Dock = DockStyle.Fill;
 
 
@@ -102,7 +108,7 @@ namespace GOSO_Hotel.UI
             MovePanel(checkincheckoutbtn);
 
             adminPanelMain.Controls.Clear();
-            UserControlAdminCheckinCheckout checkincheckout = new UserControlAdminCheckinCheckout();
+            UserControlCheckInCheckOut checkincheckout = new UserControlCheckInCheckOut();
             checkincheckout.Dock = DockStyle.Fill;
 
 
