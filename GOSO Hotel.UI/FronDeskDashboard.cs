@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GOSO_Hotel.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,12 @@ namespace GOSO_Hotel.UI
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(width, height);
+            try
+            {
+                GOSO_Hotel.Controller.AppEvents.OnRoomStatusChanged -= OnRoomRoomStatusChanged;
+                GOSO_Hotel.Controller.AppEvents.OnRoomStatusChanged += OnRoomRoomStatusChanged;
+            }
+            catch { }
         }
         private void MovePanel(Control btn)
         {
@@ -53,68 +60,126 @@ namespace GOSO_Hotel.UI
 
         }
 
-        private void guestInfobtn_Click(object sender, EventArgs e)
+        private void reservationstatsbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(guestInfobtn);
+            MovePanel(reservationstatsbtn);
             FrontDeskPanelMain.Controls.Clear();
 
-            UserControlGuestInformationcs guestInfo = new UserControlGuestInformationcs();
-            guestInfo.Dock = DockStyle.Fill;
-
-
-            FrontDeskPanelMain.Controls.Add(guestInfo);
+            var rec = new GOSO_Hotel.UI.UseControlAdmin.ReservationandGuestRecords();
+            rec.Dock = DockStyle.Fill;
+            FrontDeskPanelMain.Controls.Add(rec);
         }
 
-        private void fdreservationbtn_Click(object sender, EventArgs e)
+        private void BillingPaymentbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(fdreservationbtn);
+            MovePanel(BillingPaymentbtn);
             FrontDeskPanelMain.Controls.Clear();
 
-            UserControlReservation usreserve = new UserControlReservation();
-            usreserve.Dock = DockStyle.Fill;
-
-
-            FrontDeskPanelMain.Controls.Add(usreserve);
-
-        }
-
-        private void fdBillingPaymentbtn_Click(object sender, EventArgs e)
-        {
-            MovePanel(fdBillingPaymentbtn);
-            FrontDeskPanelMain.Controls.Clear();
-
-            UserControlBillingPayment billingPayment = new UserControlBillingPayment();
+            var billingPayment = new UserControlBillingPayment();
             billingPayment.Dock = DockStyle.Fill;
-
             FrontDeskPanelMain.Controls.Add(billingPayment);
-
         }
 
-        private void fdReservationStatbtn_Click(object sender, EventArgs e)
+        // Designer expects method named checkincheckoutbtn_Click
+        private void checkincheckoutbtn_Click(object sender, EventArgs e)
         {
-            MovePanel(fdReservationStatbtn);
+            MovePanel(checkincheckoutbtn);
+
             FrontDeskPanelMain.Controls.Clear();
+            UserControlCheckInCheckOut checkincheckout = new UserControlCheckInCheckOut();
+            checkincheckout.Dock = DockStyle.Fill;
 
-            UserControlReservationStatus stat = new UserControlReservationStatus();
-            stat.Dock = DockStyle.Fill;
+            try
+            {
+                var controller = new CustomerReservationController();
+                var items = controller.GetAllForGrid();
+                if (items != null)
+                {
+                    // build compact DataTable with important columns only
+                    var table = new DataTable();
+                    table.Columns.Add("ReservationId", typeof(int));
+                    table.Columns.Add("CustomerName", typeof(string));
+                    table.Columns.Add("RoomType", typeof(string));
+                    table.Columns.Add("RoomNumber", typeof(string));
+                    table.Columns.Add("CheckInDate", typeof(DateTime));
+                    table.Columns.Add("CheckOutDate", typeof(DateTime));
+                    table.Columns.Add("AmountToPay", typeof(decimal));
+                    table.Columns.Add("ReservationStatus", typeof(string));
+                    table.Columns.Add("PaymentStatus", typeof(string));
 
-            FrontDeskPanelMain.Controls.Add(stat);
+                    foreach (var r in items)
+                    {
+                        var ci = r.CheckInDate.HasValue ? r.CheckInDate.Value.Date : DateTime.MinValue;
+                        var co = r.CheckOutDate.HasValue ? r.CheckOutDate.Value.Date : DateTime.MinValue;
+
+                        table.Rows.Add(
+                            r.ReservationId,
+                            r.CustomerName ?? string.Empty,
+                            r.RoomType ?? string.Empty,
+                            r.RoomNumber ?? string.Empty,
+                            ci == DateTime.MinValue ? (object)DBNull.Value : ci,
+                            co == DateTime.MinValue ? (object)DBNull.Value : co,
+                            r.AmountToPay,
+                            r.ReservationStatus ?? string.Empty,
+                            r.PaymentStatus ?? string.Empty
+                        );
+                    }
+
+                    checkincheckout.SetGridDataSource(table);
+                }
+            }
+            catch
+            {
+            }
+
+            FrontDeskPanelMain.Controls.Add(checkincheckout);
+
 
         }
 
-
-        private void CheckInCheckOutbtn_Click_1(object sender, EventArgs e)
+        public void LoadUserControl(UserControl control)
         {
-            MovePanel(CheckInCheckOutbtn);
             FrontDeskPanelMain.Controls.Clear();
+            control.Dock = DockStyle.Fill;
+            FrontDeskPanelMain.Controls.Add(control);
+            try
+            {
+                var adminRec = control as GOSO_Hotel.UI.UseControlAdmin.ReservationandGuestRecords;
+                if (adminRec != null) adminRec.RefreshRoomLists();
 
-            UserControlCheckInCheckOut checkInCheckOut = new UserControlCheckInCheckOut();
-            checkInCheckOut.Dock = DockStyle.Fill;
-
-            FrontDeskPanelMain.Controls.Add(checkInCheckOut);
-
+                var reservation = control as UserControlReservation;
+                if (reservation != null)
+                {
+                    try { reservation.GetType().GetMethod("LoadRoomTypes")?.Invoke(reservation, null); } catch { }
+                    try { reservation.GetType().GetMethod("UpdateAvailableRoomNumber")?.Invoke(reservation, null); } catch { }
+                }
+            }
+            catch { }
         }
 
-      
+        private void OnRoomRoomStatusChanged()
+        {
+            try
+            {
+                if (FrontDeskPanelMain.Controls.Count > 0)
+                {
+                    var control = FrontDeskPanelMain.Controls[0];
+                    try
+                    {
+                        var adminRec = control as GOSO_Hotel.UI.UseControlAdmin.ReservationandGuestRecords;
+                        if (adminRec != null) adminRec.RefreshRoomLists();
+
+                        var reservation = control as UserControlReservation;
+                        if (reservation != null)
+                        {
+                            try { reservation.GetType().GetMethod("LoadRoomTypes")?.Invoke(reservation, null); } catch { }
+                            try { reservation.GetType().GetMethod("UpdateAvailableRoomNumber")?.Invoke(reservation, null); } catch { }
+                        }
+                    }
+                    catch { }
+                }
+            }
+            catch { }
+        }
     }
 }
