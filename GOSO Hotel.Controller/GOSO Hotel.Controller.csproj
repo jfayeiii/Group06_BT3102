@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppEvents.cs" />
     <Compile Include="CheckInCheckOutController.cs" />
     <Compile Include="RoomController.cs" />
     <Compile Include="UserController.cs" />

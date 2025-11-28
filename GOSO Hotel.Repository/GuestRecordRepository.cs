@@ -73,4 +73,4 @@ namespace GOSO_Hotel.Repository
             }
         }
     }
-}   
+}
