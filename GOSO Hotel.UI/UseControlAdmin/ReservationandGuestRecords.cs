@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GOSO_Hotel.Controller;
-using GOSO_Hotel.Model.Model;
 
 namespace GOSO_Hotel.UI.UseControlAdmin
 {
@@ -23,7 +17,7 @@ namespace GOSO_Hotel.UI.UseControlAdmin
         {
             InitializeComponent();
             controller = new CustomerReservationController();
-            FrontDeskOperatorName = Environment.UserName; // default
+            FrontDeskOperatorName = Environment.UserName;
             InitializeControls();
             LoadGrid();
         }
@@ -35,11 +29,9 @@ namespace GOSO_Hotel.UI.UseControlAdmin
 
         private void InitializeControls()
         {
-            // Populate simple combo boxes - in real app get from DB
             gendercmb.Items.AddRange(new[] { "Male", "Female", "Other" });
             IDtypecmb.Items.AddRange(new[] { "Passport", "Driver's License", "National ID" });
 
-            // Populate room types from controller
             try
             {
                 var types = controller.GetRoomTypes();
@@ -50,39 +42,25 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             }
             catch
             {
-                // fallback
                 roomtypecmb.Items.AddRange(new[] { "Single", "Double", "Suite" });
             }
 
             comboBox3.Items.AddRange(new[] { "Reserved", "CheckedIn", "CheckedOut", "Cancelled" });
 
-            // Wire event to filter room numbers when room type or dates change
             roomtypecmb.SelectedIndexChanged += Roomtypecmb_SelectedIndexChanged;
             checkinDTPicker.ValueChanged += Dates_ValueChanged;
             CheckoutDTPicker.ValueChanged += Dates_ValueChanged;
 
-            // also recalc when total price per night text changes (in case it's edited)
             txtTotalPriceNight.TextChanged += (s, e) => RecalculateAmounts();
 
             roomnumbercmb.SelectedIndexChanged += Roomnumbercmb_SelectedIndexChanged;
 
-            // wire designer Save button
             btnSave.Click += BtnSave_Click;
 
-            // wire cancel button
             btnCancelReservation.Click += BtnCancelReservation_Click;
 
-            // wire search control events
             searchbtn.Click += Searchbtn_Click;
             textBox2.KeyDown += TextBox2_KeyDown;
-
-            // removed automatic navigation: do not open check-in control from reservation grid
-            // DGBCustomerReservation.CellDoubleClick += DGBCustomerReservation_CellDoubleClick;
-
-            // removed automatic check-in button wiring here — check-in will be handled manually in CheckIn/CheckOut control
-            // btnCheckIn.Click += BtnCheckIn_Click;
-
-            // subscribe to room status changes so UI comboboxes refresh when room availability changes
             try
             {
                 AppEvents.OnRoomStatusChanged -= OnRoomStatusChangedHandler;
@@ -90,7 +68,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             }
             catch { }
 
-            // refresh when the control becomes visible (user navigates to this tab) so latest rooms are shown
             try
             {
                 this.VisibleChanged -= ReservationandGuestRecords_VisibleChanged;
@@ -103,14 +80,11 @@ namespace GOSO_Hotel.UI.UseControlAdmin
         {
             try
             {
-                // ensure UI update happens on UI thread
                 this.BeginInvoke((Action)(() =>
                 {
-                    // DEBUG: notify that the event was received (remove after debugging)
                     try { MessageBox.Show("Room status changed event received", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Information); } catch { }
                     try
                     {
-                        // refresh room types first, preserving selection when possible
                         var prev = roomtypecmb.SelectedItem?.ToString();
                         roomtypecmb.Items.Clear();
                         var types = controller.GetRoomTypes();
@@ -118,7 +92,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                         {
                             roomtypecmb.Items.AddRange(types.ToArray());
                         }
-                        // restore previous selection if still present
                         if (!string.IsNullOrWhiteSpace(prev) && roomtypecmb.Items.Contains(prev))
                         {
                             roomtypecmb.SelectedItem = prev;
@@ -128,7 +101,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                             roomtypecmb.SelectedIndex = 0;
                         }
 
-                        // refresh available room numbers for the (possibly new) selected type
                         try { LoadAvailableRoomsForSelectedType(); } catch { }
                     }
                     catch { }
@@ -162,7 +134,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                     return;
                 }
 
-                // Previously opened check-in control here. Now navigation to check-in is manual.
                 MessageBox.Show("Open the Check-In/Check-Out control and select the reservation to proceed.", "Manual Check-In", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -269,7 +240,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                 DGBCustomerReservation.DataSource = table;
                 DGBCustomerReservation.AutoGenerateColumns = true;
                 DGBCustomerReservation.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                // show id column
                 if (DGBCustomerReservation.Columns.Contains("ReservationId"))
                     DGBCustomerReservation.Columns["ReservationId"].Visible = true;
             }
@@ -281,10 +251,8 @@ namespace GOSO_Hotel.UI.UseControlAdmin
 
         private void Dates_ValueChanged(object sender, EventArgs e)
         {
-            // refresh room numbers based on current selection
             LoadAvailableRoomsForSelectedType();
 
-            // also recalc amounts because nights may have changed
             RecalculateAmounts();
         }
 
@@ -295,7 +263,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
 
         private void Roomnumbercmb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // autofill price per night, guest allowed (from room), payment status and amount to pay
             try
             {
                 var roomNo = roomnumbercmb.SelectedItem?.ToString();
@@ -304,27 +271,21 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                 var room = controller.GetRoomByRoomNo(roomNo);
                 if (room == null) return;
 
-                // price
                 txtTotalPriceNight.Text = room.PricePerNight.ToString("F2");
 
-                // guest allowed - use Capacity
                 txtGuestAllowed.Text = room.Capacity.ToString();
 
-                // if guest text is empty, default to capacity (for number-of-guests field if used)
                 if (string.IsNullOrWhiteSpace(txtroomguest.Text))
                 {
                     txtroomguest.Text = room.Capacity.ToString();
                 }
 
-                // payment status default
                 txtPaymentStatus.Text = "Full Payment";
 
-                // compute nights and amount to pay
                 RecalculateAmounts();
             }
             catch (Exception ex)
             {
-                // ignore, do not block user
             }
         }
 
@@ -355,7 +316,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             }
         }
 
-        // Recalculate amount to pay and change based on selected room price, dates and amount paid
         private void RecalculateAmounts()
         {
             try
@@ -375,13 +335,11 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                 decimal.TryParse(txtAmountPaid.Text, out amountPaid);
 
                 var change = amountPaid - totalToPay;
-                // show negative change as 0 (or you may want to show negative to indicate remaining balance)
                 if (change < 0) change = 0m;
                 txtChangeDue.Text = change.ToString("F2");
             }
             catch
             {
-                // swallow errors - keep UI responsive
             }
         }
 
@@ -391,7 +349,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             {
                 var items = controller.GetAllForGrid();
 
-                // Build DataTable with only the columns we want to show in the grid
                 var table = new DataTable();
                 table.Columns.Add("ReservationId", typeof(int));
                 table.Columns.Add("CustomerName", typeof(string));
@@ -485,7 +442,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                     return;
                 }
 
-                // set amount paid/change from UI before saving
                 model.AmountPaid = decimal.TryParse(txtAmountPaid.Text, out var ap) ? ap : 0m;
                 model.ChangeDue = decimal.TryParse(txtChangeDue.Text, out var ch) ? ch : 0m;
 
@@ -579,10 +535,8 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                 var boldFont = new Font("Segoe UI", 10, FontStyle.Bold);
                 var amountFont = new Font("Segoe UI", 10, FontStyle.Bold);
 
-                // Helper to get consistent line spacing
                 float lineSpacing = Math.Max(regularFont.GetHeight(g), 16f) + 4f;
 
-                // Hotel name and address (centered)
                 string hotelName = "GOSO HOTEL";
                 var hotelSize = g.MeasureString(hotelName, headerFont);
                 g.DrawString(hotelName, headerFont, Brushes.Black, (ev.PageBounds.Width - hotelSize.Width) / 2f, y);
@@ -599,7 +553,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                 g.DrawString(title, subHeaderFont, Brushes.Black, (ev.PageBounds.Width - titleSize.Width) / 2f, y);
                 y += titleSize.Height + 8f;
 
-                // Operator and timestamp
                 string operatorName = string.IsNullOrWhiteSpace(FrontDeskOperatorName) ? "Front Desk" : FrontDeskOperatorName;
                 string dateStr = DateTime.Now.ToString("yyyy-MM-dd");
                 string timeStr = DateTime.Now.ToString("HH:mm:ss");
@@ -667,19 +620,15 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                     DrawDetail("Nights:", nights.ToString());
                 }
 
-                // Now draw amounts in a right column, starting at amountsY
                 float amountsLabelX = right - 220;
-                float amountsValueX = right - 40; // right-aligned area
+                float amountsValueX = right - 40;
 
                 void DrawAmount(string label, string value)
                 {
-                    // draw label
                     g.DrawString(label, boldFont, Brushes.Black, amountsLabelX, amountsY);
 
-                    // compute available width for value
-                    float availableWidth = (amountsValueX - amountsLabelX) - 8f; // padding
+                    float availableWidth = (amountsValueX - amountsLabelX) - 8f; 
 
-                    // start with amountFont, reduce size until fits or reach min
                     float fontSize = amountFont.Size;
                     Font f = amountFont;
                     var measured = g.MeasureString(value, f);
@@ -690,10 +639,8 @@ namespace GOSO_Hotel.UI.UseControlAdmin
                         measured = g.MeasureString(value, f);
                     }
 
-                    // draw value right-aligned within available area
                     g.DrawString(value, f, Brushes.Black, amountsValueX - measured.Width, amountsY);
 
-                    // dispose the scaled font if we created one
                     if (!object.ReferenceEquals(f, amountFont)) f.Dispose();
 
                     amountsY += lineSpacing;
@@ -845,7 +792,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             }
             catch
             {
-                // ignore
             }
         }
 
@@ -855,8 +801,7 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             {
                 if (this.Visible)
                 {
-                    try
-                    { // refresh room types and available numbers when shown
+                    try { 
                         var prev = roomtypecmb.SelectedItem?.ToString();
                         roomtypecmb.Items.Clear();
                         var types = controller.GetRoomTypes();
@@ -871,7 +816,6 @@ namespace GOSO_Hotel.UI.UseControlAdmin
             catch { }
         }
 
-        // Allow external callers (dashboards) to request room list refresh
         public void RefreshRoomLists()
         {
             try
