@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerReservationRepository.cs" />
     <Compile Include="GuestRecordRepository.cs" />
     <Compile Include="RoomRepository.cs" />
     <Compile Include="UserRepository.cs" />

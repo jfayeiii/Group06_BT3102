@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillingPaymentModel.cs" />
     <Compile Include="GuestRecordModel.cs" />
+    <Compile Include="ReservationGuestFullModel.cs" />
     <Compile Include="RoomModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
