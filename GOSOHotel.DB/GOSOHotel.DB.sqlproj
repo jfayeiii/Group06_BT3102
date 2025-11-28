@@ -80,5 +80,8 @@
     <Build Include="Table\GuestRecord.sql" />
     <Build Include="Table\Reservation.sql" />
     <Build Include="Table\Billing.sql" />
+    <Build Include="Table\dbo.Reservation_1.sql" />
+    <Build Include="Table\dbo.CheckInOut.sql" />
+    <Build Include="Table\dbo.CustomerReservation.sql" />
   </ItemGroup>
 </Project>
