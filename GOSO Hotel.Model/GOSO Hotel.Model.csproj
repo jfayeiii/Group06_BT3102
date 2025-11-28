@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="BillingPaymentModel.cs" />
     <Compile Include="GuestRecordModel.cs" />
+    <Compile Include="model\BillingModel.cs" />
+    <Compile Include="model\CheckInOutModel.cs" />
+    <Compile Include="model\CustomerReservationModel.cs" />
     <Compile Include="ReservationGuestFullModel.cs" />
     <Compile Include="RoomModel.cs" />
     <Compile Include="UserModel.cs" />
